@@ -11,6 +11,7 @@ provider "aws" {
   region = "eu-west-1"
 }
 
+
 data "aws_ami" "ubuntu" {
 
   most_recent = true
@@ -22,16 +23,16 @@ data "aws_ami" "ubuntu" {
   }
 }
 
-}
+
 resource "aws_instance" "web-server-instance" {
-  ami               = aws_ami.ubuntu.id
+  ami               = data.aws_ami.ubuntu.id
   instance_type     = "t2.micro"
 
   user_data = "${file("install.sh")}"
   user_data_replace_on_change = true
 
   tags = {
-    Name = "web-server"
+    Name = "hello-server"
   }
 
 }
