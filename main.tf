@@ -40,7 +40,7 @@ resource "aws_instance" "web-server-instance" {
   user_data_replace_on_change = true
 
   tags = {
-    Name = "hello-server"
+    Name = "web-server"
   }
 
 }
