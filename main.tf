@@ -5,12 +5,20 @@ terraform {
       version = "4.38.0"
     }
   }
+
+
+  cloud {
+    organization = "yanka13"
+
+    workspaces {
+      name = "gh-actions"
+    }
+  }
 }
 
 provider "aws" {
   region = "eu-west-1"
 }
-
 
 data "aws_ami" "ubuntu" {
 
